@@ -1,5 +1,4 @@
 import { Sidebar } from "@/app/components";
-import Image from "next/image";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
