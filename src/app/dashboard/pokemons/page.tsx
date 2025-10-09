@@ -10,7 +10,7 @@ const getPokemons = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => 
     name: item.name,
   }));
 
-  throw new Error("Error al cargar los pokemons");
+  // throw new Error("Error al cargar los pokemons");
 
   return pokemons;
 };
