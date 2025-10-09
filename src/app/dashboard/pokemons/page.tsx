@@ -9,6 +9,9 @@ const getPokemons = async (limit = 20, offset = 0): Promise<SimplePokemon[]> => 
     id: item.url.split("/").at(-2)!,
     name: item.name,
   }));
+
+  throw new Error("Error al cargar los pokemons");
+
   return pokemons;
 };
 
