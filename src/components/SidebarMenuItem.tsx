@@ -1,8 +1,8 @@
 "use client";
 
+import { MenuItems } from "@/app/interfaces/global";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { MenuItems } from "../interfaces/global";
 
 export const SidebarMenuItem = ({ path, icon, title, subTitle }: MenuItems) => {
   const currentPath = usePathname();

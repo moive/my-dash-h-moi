@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { IoBrowsersOutline, IoCalculator, IoFootball, IoLogoReact } from "react-icons/io5";
 import { SidebarMenuItem } from "./SidebarMenuItem";
-import { MenuItems } from "../interfaces/global";
+import { MenuItems } from "@/app/interfaces/global";
 
 const menuItems: MenuItems[] = [
   {
@@ -28,7 +28,7 @@ export const Sidebar = () => {
   return (
     <div
       id="menu"
-      className="bg-gray-900 min-h-screen z-10 text-slate-300 w-96 left-0 overflow-y-scroll"
+      className="bg-gray-900 min-h-screen z-10 text-slate-300 w-96 left-0 overflow-y-auto"
     >
       <div id="logo" className="my-4 px-6">
         <h1 className="flex items-center text-lg md:text-2xl font-bold text-white">
