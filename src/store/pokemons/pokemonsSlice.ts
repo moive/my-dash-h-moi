@@ -3,38 +3,45 @@ import { SimplePokemon } from "@/pokemons";
 
 /*
   {
-    "1": { id:1, name: "name1" },
-    "2": { id:2, name: "name2" },
-    "3": { id:3, name: "name3" },
+    favorites: {
+      "1": { id:1, name: "name1" },
+      "2": { id:2, name: "name2" },
+      "3": { id:3, name: "name3" },
+    }
   }
 */
 
 interface PokemonsState {
-  [key: string]: SimplePokemon;
+  favorites: { [key: string]: SimplePokemon };
 }
 
 const initialState: PokemonsState = {
-  "1": { id: "1", name: "bulbasaur" },
+  favorites: {},
+  // "1": { id: "1", name: "bulbasaur" },
 };
 
 const pokemonsSlice = createSlice({
   name: "pokemons",
   initialState,
   reducers: {
+    setFavoritePokemons(state, action: PayloadAction<{ [key: string]: SimplePokemon }>) {
+      state.favorites = action.payload;
+    },
     toggleFavorite(state, action: PayloadAction<SimplePokemon>) {
+      // debugger;
       const pokemon = action.payload;
       const { id } = pokemon;
 
-      if (!!state[id]) {
-        delete state[id];
+      if (!!state.favorites[id]) {
+        delete state.favorites[id];
         return;
+      } else {
+        state.favorites[id] = pokemon;
       }
-
-      state[id] = pokemon;
     },
   },
 });
 
-export const { toggleFavorite } = pokemonsSlice.actions;
+export const { toggleFavorite, setFavoritePokemons } = pokemonsSlice.actions;
 
 export default pokemonsSlice.reducer;
